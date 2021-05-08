@@ -1,0 +1,104 @@
+Instalar ruter dom = npm install react-router-dom
+
+
+//tutoriales sugeridos
+// https://www.youtube.com/watch?v=tli5n_NqQW8
+//https://www.youtube.com/watch?v=0_D8ruGVp20
+
+
+react
+https://www.youtube.com/watch?v=nTy61Fj85Nw&list=PL4qycS8CTHjtMkDeqBHii9gviQKc0P68g&index=15
+
+
+https://www.youtube.com/watch?v=8m8Q4wqFez0
+
+
+
+
+import React, { Component,Fragment,useState } from 'react';
+import { BrowserRouter as Router, Route, Link, withRouter} from 'react-router-dom' // Para realizar ruteo
+import {ConsultarCategorias} from '../acciones/acciones-categorias' 
+import Encabezado from '../componentes/encabezado'
+//import CampoDato from '../componentes/campo-imput'
+const categorias  = ConsultarCategorias();
+class Categorias extends React.Component  {
+
+    //const {history} = props;
+    
+
+    constructor(props){
+        super(props)
+        this.data = [categorias]
+    this.hola=[
+
+        {nombre : "Juan", edad: 27},
+        {nombre : "Pedro", edad: 27},
+        {nombre : "Marcelo", edad: 27}
+
+    ];
+    }
+
+render(){ 
+    
+    return(
+           
+        <div> 
+           <Encabezado titulo="Categorias"/>
+
+                <React.Fragment>
+                    <table>
+                        <thead>
+                            <tr>
+                                
+                                <th>Nombre</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                this.data.map( (datos)=>{
+                                    return(
+                                        <div>
+                                            <tr>{datos.nombre}</tr>
+                                        <tr>{datos.edad}</tr>
+                                        </div>
+                                        
+                                    )
+                                } )
+
+
+                            }
+                             
+                        </tbody>
+                        
+                        
+
+                    </table>
+
+                </React.Fragment>
+        
+                                              
+        </div>
+
+    
+       
+    )
+
+   
+
+
+}
+    
+
+   
+        
+}
+
+
+export default withRouter(Categorias)
+
+
+
+    
+
+    
